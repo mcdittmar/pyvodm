@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:coords="http://ivoa.net/dm/models/vo-dml/xsd/coords"
+   elementFormDefault="qualified"
+   targetNamespace="http://ivoa.net/dm/models/vo-dml/xsd/coords">
+
+  <xsd:annotation>
+    <xsd:documentation>
+    This schema extends the Coords model schema to provide a 'root' element
+    which enables the generation of example serializations of the various
+    coords model types, which can then be validated.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <!-- Include the Coords model schema -->
+  <xsd:include schemaLocation="http://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/Coords_v1.0.xsd"/>
+
+  <!-- Define a root element -->
+  <xsd:element name="EXAMPLE" type="coords:CoordModelTypes"/>
+
+  <!-- Build a type which allows for any sequence of Coords model elements -->
+  <xsd:complexType name="CoordModelTypes">
+    <xsd:annotation>
+      <xsd:documentation>Collection of all Coords model types.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:choice minOccurs="0" maxOccurs="unbounded">
+
+	<!-- Coords model elements -->
+	<xsd:element name="Latitude" type="coords:Latitude"/>
+	<xsd:element name="Longitude" type="coords:Longitude"/>
+	<xsd:element name="PixelSpace" type="coords:PixelSpace"/>
+	<xsd:element name="SpaceFrame" type="coords:SpaceFrame"/>
+
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+</xsd:schema>
+

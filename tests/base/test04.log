@@ -1,0 +1,32 @@
+
+Tool Parameters
+  infile:              ./tests/data/test_eventlist.fits
+  template:            ./tests/res/test_modelmap2.db
+  outdir:              ./tests/out/
+  outfile:             -
+  format:              xml
+  ds:                  https://volute.g-vo.org/svn/trunk/projects/dm/DatasetMetadata/vo-dml/DatasetMetadata-1.0.vo-dml.xml
+  cube:                https://volute.g-vo.org/svn/trunk/projects/dm/Cube/vo-dml/Cube-1.0.vo-dml.xml
+  coords:              https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml
+  meas:                https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml
+  trans:               file:///data/vao/staff/mcd/docs/models/dm/STC/Trans/vo-dml/STC_trans-v1.0.vo-dml.xml
+  ivoa:                https://volute.g-vo.org/svn/trunk/projects/dm/vo-dml/models/ivoa/vo-dml/IVOA-v1.0.vo-dml.xml
+  clobber:             True
+  verbose:             2
+  mode:                h
+
+Load supported models:
+  model - cube
+  model - ds
+  model - coords
+  model - meas
+  model - trans
+  model - ivoa
+
+Load Instance Template:
+
+Process Files:
+  process file: ./tests/data/test_eventlist.fits
+  write file: ./tests/out/test_eventlist.xml
+
+Done.

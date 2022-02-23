@@ -1,0 +1,41 @@
+#TEXT/DTF
+XTENSION= "TABLE   "          
+HDUNAME = "CATALOG"          
+EXTNAME = "CATALOG"          
+TFIELDS =                    8
+TTYPE1  = "designation"        / Source name
+TFORM1  = "14A     "           / data format of field.
+TTYPE2  = "ra      "           / RA
+TFORM2  = "1D      "           / data format of field.
+TUNIT2  = "deg     "           / physical unit of field.
+TTYPE3  = "dec     "           / DEC
+TFORM3  = "1D      "           / data format of field.
+TUNIT3  = "deg     "           / physical unit of field.
+TTYPE4  = "class   "           / Object classification
+TFORM4  = "10A     "           / data format of field.
+TTYPE5  = "magj    "           / Magnitude in J band
+TFORM5  = "1E      "           / data format of field.
+TTYPE6  = "errj    "           / Magnitude error in J band
+TFORM6  = "1E      "           / data format of field.
+TTYPE7  = "mag     "           / magnitude
+TFORM7  = "1E      "           / data format of field.
+TTYPE8  = "magerr  "           / magnitude error
+TFORM8  = "1E      "           / data format of field.
+DATE    = "2017-03-27T15:35:56" / Date and time of file creation
+RADESYS = "FK5"
+EQUINOX = "J2000.0"
+FILTER1 = "2mass:J"
+FILTER2 = "2mass:H"
+FILTER3 = "2mass:K"
+# Temporary - put columns as keys
+SRCNAME = "Alpha Romeo"
+SRCRA   = 12.9768538030848 
+SRCDEC  = -72.9580158132637 
+SRCCLS  = 'star' 
+SRCMAGJ = 0.042 
+SRCERRJ = 0.0003 
+SRCMAG  = 0.0413 
+SRCERR  = 0.00021
+END
+
+'Alpha Romeo' 12.9768538030848 -72.9580158132637 'star' 0.042 0.0003 0.0413 0.00021

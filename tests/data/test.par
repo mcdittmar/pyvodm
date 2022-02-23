@@ -1,0 +1,8 @@
+infile,f,a,"",,,"File or Stack type parameter"
+outdir,s,a,"",,,"Output directory parameter"
+keyname,s,a,"",,,"String parameter"
+format,s,h,"vot",vot|avot|xml,,"String param with enumerated option set."
+thresh,r,h,0.025,0,1,"Threshold - Floating point param"
+clobber,b,h,yes,,,"Clobber existing output (yes|no)?"
+verbose,i,h,1,0,5,"Verbosity level (0 = no display)"
+mode,s,h,"h",,,

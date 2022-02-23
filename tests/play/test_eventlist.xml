@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meas:EXAMPLE xmlns:coords="http://ivoa.net/dm/models/vo-dml/xsd/coords" xmlns:ivoa="http://ivoa.net/dm/models/vo-dml/xsd/ivoa" xmlns:meas="http://ivoa.net/dm/models/vo-dml/xsd/meas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <coords:SpaceFrame ID="_01Y9upPqe85fbjQ">
+    <refPosition xsi:type="coords:StdRefLocation">
+      <position>TOPOCENTER</position>
+    </refPosition>
+    <spaceRefFrame>ICRS</spaceRefFrame>
+    <planetaryEphem>DE432</planetaryEphem>
+  </coords:SpaceFrame>
+  <meas:EquatorialPosition>
+    <ra xsi:type="coords:Longitude">
+      <cval xsi:type="ivoa:RealQuantity">
+        <value>2.7838604502313E+02</value>
+      </cval>
+    </ra>
+    <dec xsi:type="coords:Latitude">
+      <cval xsi:type="ivoa:RealQuantity">
+        <value>-1.0589913302866E+01</value>
+      </cval>
+    </dec>
+  </meas:EquatorialPosition>
+  <coords:PixelSpace>
+    <!--
+    <handedness>right</handedness>
+    -->
+    <axis xsi:type="coords:BinnedAxis">
+      <length>10</length>
+    </axis>
+    <axis xsi:type="coords:BinnedAxis">
+      <length>20</length>
+    </axis>
+  </coords:PixelSpace>
+</meas:EXAMPLE>

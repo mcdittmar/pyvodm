@@ -1,0 +1,26 @@
+# -----------------------------------
+# VO Data Model Summary              
+# -----------------------------------
+Prefix=filter
+Description='This is an alternative version of the data model for Photometric Calibration ...'
+Title='Filter'
+Author=''
+Version=0.x
+PreviousVersion=
+LastModified=2016-08-18T10:59:45
+#
+#
+# Tag                                        & Element Type   & Type                                              & Mult & Description                                       
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------
+PhotometricSystem                            & objectType     & PhotometricSystem                                 &      & TODO : Missing description : please, update your UML model asap.
+PhotometricSystem.description                & attribute      & ivoa:string                                       & 0..1 & String representation Photometric system          
+PhotometricSystem.detectorType               & attribute      & ivoa:integer                                      & 1    & Type of detector (e.g energy or photon counter)   
+PhotometryFilter                             & objectType     & PhotometryFilter                                  &      & TODO : Missing description : please, update your UML model asap.
+PhotometryFilter.bandName                    & attribute      & ivoa:string                                       & 1    & TODO : Missing description : please, update your UML model asap.
+PhotometryFilter.dataValidityFrom            & attribute      & ivoa:datetime                                     & 1    & TODO : Missing description : please, update your UML model asap.
+PhotometryFilter.dataValidityTo              & attribute      & ivoa:datetime                                     & 1    & TODO : Missing description : please, update your UML model asap.
+PhotometryFilter.description                 & attribute      & ivoa:string                                       & 1    & Text description of the filter band               
+PhotometryFilter.fpsIdentifier               & attribute      & ivoa:string                                       & 1    & IVOA identifier of the Filter Profile Service     
+PhotometryFilter.identifier                  & attribute      & ivoa:string                                       & 1    & TODO : Missing description : please, update your UML model asap.
+PhotometryFilter.name                        & attribute      & ivoa:string                                       & 1    & Filter Name in the instrumental configuration     
+PhotometryFilter.spectralLocation            & attribute      & ivoa:RealQuantity                                 & 1    & TODO : Missing description : please, update your UML model asap.

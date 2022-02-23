@@ -1,0 +1,60 @@
+# -----------------------------------
+# VO Data Model Summary              
+# -----------------------------------
+Prefix=sample
+Description='This is a sample data model. It contains the IVOA UML Profile and imports the IVOA_Profile data model with primitive types. It has some sample relationships etc to be used in documentation etc.'
+Title='Sample VO-DML data model.'
+Author=''
+Version=1.0
+PreviousVersion=
+LastModified=2016-11-26T08:50:50
+#
+#
+# Tag                                        & Element Type   & Type                                              & Mult & Description                                       
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------
+catalog                                      & package        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource                       & objectType     & AbstractSource                                    &      & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource.classification        & attribute      & sample:catalog.SourceClassification               & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource.description           & attribute      & ivoa:string                                       & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource.name                  & attribute      & ivoa:string                                       & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource.position              & attribute      & sample:catalog.SkyCoordinate                      & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.AbstractSource.positionError         & attribute      & sample:catalog.SkyError                           & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.AlignedEllipse                       & dataType       & AlignedEllipse                                    &      & TODO : Missing description : please, update your UML model asap.
+catalog.AlignedEllipse.latError              & attribute      & ivoa:real                                         & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.AlignedEllipse.longError             & attribute      & ivoa:real                                         & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.AstroObject                          & objectType     & AstroObject                                       &      & Generic base class for all astronomical objects.  
+catalog.AstroObject.label                    & attribute      & ivoa:string                                       & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.CircleError                          & dataType       & CircleError                                       &      & TODO : Missing description : please, update your UML model asap.
+catalog.CircleError.radius                   & attribute      & ivoa:real                                         & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.GenericEllipse                       & dataType       & GenericEllipse                                    &      & TODO : Missing description : please, update your UML model asap.
+catalog.GenericEllipse.major                 & attribute      & ivoa:real                                         & 1    & major axis of error ellipse                       
+catalog.GenericEllipse.minor                 & attribute      & ivoa:real                                         & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.GenericEllipse.pa                    & attribute      & ivoa:real                                         & 0..* & Position angle of error ellipse in coordinate system of position.
+catalog.LuminosityMeasurement                & objectType     & LuminosityMeasurement                             &      & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityMeasurement.description    & attribute      & ivoa:string                                       & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityMeasurement.error          & attribute      & ivoa:RealQuantity                                 & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityMeasurement.filter         & reference      & filter:PhotometryFilter                           & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityMeasurement.type           & attribute      & sample:catalog.LuminosityType                     & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityMeasurement.value          & attribute      & ivoa:RealQuantity                                 & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityType                       & enumeration    & LuminosityType                                    &      & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityType.flux                  & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.LuminosityType.magnitude             & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.SDSSSource                           & objectType     & SDSSSource                                        &      & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinate                        & dataType       & SkyCoordinate                                     &      & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinate.frame                  & reference      & sample:catalog.SkyCoordinateFrame                 & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinate.latitude               & attribute      & ivoa:RealQuantity                                 & 1    & The latitude part of this position in units of degrees.
+catalog.SkyCoordinate.longitude              & attribute      & ivoa:RealQuantity                                 & 1    & The longitude part of this position in units of degrees.
+catalog.SkyCoordinateFrame                   & objectType     & SkyCoordinateFrame                                &      & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinateFrame.documentURI       & attribute      & ivoa:anyURI                                       & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinateFrame.equinox           & attribute      & ivoa:string                                       & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinateFrame.name              & attribute      & ivoa:string                                       & 1    & TODO : Missing description : please, update your UML model asap.
+catalog.SkyCoordinateFrame.system            & attribute      & ivoa:string                                       & 0..1 & TODO : Missing description : please, update your UML model asap.
+catalog.SkyError                             & dataType       & SkyError                                          &      & Error of a position on the sky.                   
+catalog.Source                               & objectType     & Source                                            &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification                 & enumeration    & SourceClassification                              &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification.AGN             & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification.galaxy          & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification.planet          & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification.star            & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.SourceClassification.unknown         & literal        &                                                   &      & TODO : Missing description : please, update your UML model asap.
+catalog.TwoMassSource                        & objectType     & TwoMassSource                                     &      & TODO : Missing description : please, update your UML model asap.
