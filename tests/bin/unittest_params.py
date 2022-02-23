@@ -199,44 +199,6 @@ class TestToolParams(unittest.TestCase):
     self.assertEqual( result, expected )
 
 
-  def test10(self):
-    """ validate_file_param() - file is valid stack with filter syntax"""
-
-    goodstack = ''.join(( "@", self.TESTIN, self.instack, "[time=100:200][cols time,quality]" ))
-
-    try:
-      params = get_params( 'test' )
-      params['infile'] = goodstack
-
-      validate_file_param( params, "infile" )
-      result = params["infile"]
-
-    except Exception as ex:
-      print(ex.__class__.__name__ + ": " + str(ex))
-      raise Exception("Error: unexpected exception thrown")
-
-    self.assertEqual( result, goodstack )
-
-
-  def test11(self):
-    """ validate_file_param() - file is valid file with filter syntax """
-
-    goodfile = self.TESTIN + "test_sample.fits[time=100:200]"
-
-    try:
-      params = get_params( 'test' )
-      params['infile'] = goodfile
-      
-      validate_file_param( params, "infile" )      
-      result = params["infile"]
-
-    except Exception as ex:
-        print(ex.__class__.__name__ + ": " + str(ex))
-        raise Exception("Error: unexpected exception thrown")
-
-    self.assertEqual( result, goodfile )
-
-
   def test12(self):
     """ validate_dir_param() - location does not exist """
 

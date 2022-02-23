@@ -110,12 +110,12 @@ def validate_file_param( pars, pname ):
 
   Valid formats are:
    o filename:
-      * path to file on disk, possibly with extended filter syntax 
-        eg: '/data/sample/myfile.fits[x=10:30]'
+      * path to file on disk 
+        eg: '/data/sample/myfile.fits'
       * URL ("http:", "https:", "file:")
 
    o stack:
-      * '@' + path to list file on disk, possibly with extended filter syntax
+      * '@' + path to list file on disk
         eg: '@/data/sample/inputs.lis'
      
    o comma delimited list of files
@@ -160,14 +160,12 @@ def validate_file_param( pars, pname ):
   # check for stack (starts with '@')
   if fnam[0] == '@':
     item = fnam[1:]           # remove '@' 
-    item = item.split('[')[0] # remove any filter syntax
     if os.path.isfile(item) == False:
       raise ValueError("'"+pname+"' stack file does not exist, \"{0}\".".format(item))
 
   # check input file existance
   #   this may be overdoing it.
   if fnam.startswith("http:") or fnam.startswith("https:") or fnam.startswith("file:"):
-    item = fnam.split('[')[0] # remove any filter syntax
     import sys
     if sys.version_info[0] < 3:
       from urllib2 import urlopen
@@ -181,7 +179,6 @@ def validate_file_param( pars, pname ):
   else:
     ifiles = stk_build( fnam )
     for item in ifiles:
-      item = item.split('[')[0] # remove any filter syntax
       if os.path.isfile(item) == False:
         raise ValueError("'"+pname+"' file does not exist, \"{0}\".".format(item))
 
@@ -226,6 +223,42 @@ def get_params( tool, argv=None ):
     # Get parameter set with defaults
     pars = _init_params( tool )
     
+    # override command line arguements
+    set_params( pars, argv )
+
+  except Exception as e:  # catch any exception
+    raise(e)
+
+  return pars
+
+
+# ================================================================================
+def set_params( pars, argv=None ):
+  """
+  Update parameters from argument list.
+
+  Parameters
+  ----------
+
+    pars : Ordered dictionary
+           parameter list
+    argv : array_like
+           command line arguments, if any
+
+  Returns
+  --------
+ 
+    none
+
+  Raises
+  --------
+
+  TypeError  : 
+               invalid function argument error 
+
+  """
+
+  try:
 
     # override command line arguements
     if argv is not None and len(argv) > 1:
@@ -257,6 +290,7 @@ def get_params( tool, argv=None ):
     raise(e)
 
   return pars
+
 
 # ================================================================================
 def print_params( pars ):
@@ -315,31 +349,7 @@ def _init_params( toolname ):
   # parameter dictionary 
   params = OrderedDict()
 
-  if ( toolname == "voefg" ):
-    params['infile'] = ""
-    params['template'] = ""
-    params['outdir'] = ""
-    params['outfile'] = ""
-    params['format'] = "vot"
-    # Model Specs (current)
-    params['ds']     = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/DatasetMetadata-1.0.vo-dml.xml"
-    params['cube']   = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/Cube-1.0.vo-dml.xml"
-    params['coords'] = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/Coords-v1.0.20210924.vo-dml.xml"
-    params['meas']   = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/Meas-v1.0.20211019.vo-dml.xml"
-    params['trans']  = "file:///Users/sao/Documents/IVOA/GitHub/TransformDM/vo-dml/Trans-v1.0.vo-dml.xml"
-    params['ivoa']   = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/IVOA-v1.vo-dml.xml"
-    # Model Specs (old)
-#    params['ds']     = "https://volute.g-vo.org/svn/trunk/projects/dm/DatasetMetadata/vo-dml/DatasetMetadata-1.0.vo-dml.xml"
-#    params['cube']   = "https://volute.g-vo.org/svn/trunk/projects/dm/Cube/vo-dml/Cube-1.0.vo-dml.xml"
-#    params['coords'] = "https://volute.g-vo.org/svn/trunk/projects/dm/STC/Coords/vo-dml/STC_coords-v1.0.vo-dml.xml"
-#    params['meas']   = "https://volute.g-vo.org/svn/trunk/projects/dm/STC/Meas/vo-dml/STC_meas-v1.0.vo-dml.xml"
-#    params['trans']  = "file:///Users/sao/Documents/IVOA/GitHub/TransformDM/vo-dml/Trans-v1.0.vo-dml.xml"
-#    params['ivoa']   = "file:///Users/sao/Documents/IVOA/GitHub/dm-usecases-impl/resources/IVOA-v1.vo-dml.xml"
-    #
-    params['clobber'] = True
-    params['verbose'] = 1
-    
-  elif ( toolname == "test" ):
+  if ( toolname == "test" ):
     params['infile'] = "<TESTIN>/test_stack.lis"     # File or Stack parameter
     params['outdir'] = "<TESTOUT>"                   # Directory parameter
     params['keyname'] = "SAMPLE"                     # String parameter
@@ -378,10 +388,6 @@ def stk_build( stkname ):
   """
   stack = []
 
-  # remove any filter syntax
-  # MCD NOTE: this is a leftover from crates usage.. can no longer support DM filtering syntax.
-  stkname = stkname.split('[')[0] 
-  
   if stkname[0] == '@':
     #stack file
     try:
